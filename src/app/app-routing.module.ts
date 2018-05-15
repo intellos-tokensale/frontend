@@ -1,10 +1,27 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { BuyComponent } from './buy/buy.component';
+import { ConfirmComponent } from './confirm/confirm.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+      path: '',
+      component: DashboardComponent,
+  },
+  {
+    path: 'buy',
+    component: BuyComponent,
+  },
+  {
+    path: 'confirm',
+    component: ConfirmComponent,
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  declarations: []
 })
 export class AppRoutingModule { }

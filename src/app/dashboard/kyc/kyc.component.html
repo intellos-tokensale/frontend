@@ -1,0 +1,14 @@
+<div class="card mb-4 box-shadow">
+    <div class="card-header " style="background-color: #3f51b5;color: #eeeeee">
+        <h6 translate>KYC Process</h6>
+    </div>
+    <div class="card-body" style="color: #222222">
+        <div *ngIf="kycDone">
+            <div class="text-success" style="font-size: 14px;">You have successfully completed your KYC process</div>
+        </div>
+        <div *ngIf="!kycDone">
+            <div class="text-danger" style="font-size: 14px;">You still need to complete the KYC process</div>
+            <a href="#ref" class="btn btn-primary">Proceed to KYC ></a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="card mb-4 box-shadow">
+    <div class="card-header " style="background-color: #3f51b5;color: #eeeeee">
+        <h6 translate>Invest in toklensale</h6>
+    </div>
+    <div class="card-body" style="color: #222222">
+        <app-countdown></app-countdown>
+        1 Token = {{1/ETHrate}} ETH | {{1/BTCrate}} BTC | {{1/dollarRate}} $
+        <div class="m-3">
+            <button [disabled]="active=='ETH'" type="button" class="btn btn-primary" (click)="active='ETH'">ETH</button>
+            <button [disabled]="active=='BTC'" type="button" class="btn btn-primary" (click)="active='BTC'">BTC</button>
+        </div>
+        <app-wallet [hidden]="active!='BTC'" [rate]="BTCrate" currencySymbol="BTC" qrcodePrefix="bitcoin" [baseAddress]="BTCaddress" tokenSymbol="ITL"></app-wallet>
+        <app-wallet [hidden]="active!='ETH'" [rate]="ETHrate" currencySymbol="ETH" qrcodePrefix="etereum" [baseAddress]="ETHaddress" tokenSymbol="ITL"></app-wallet>
+        <app-investment-list></app-investment-list>
+    </div>
+</div>

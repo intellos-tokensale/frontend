@@ -1,0 +1,20 @@
+<div class="card mb-4 box-shadow">
+    <div class="card-header " style="background-color: #3f51b5;color: #eeeeee">
+        <h6>Your Investments</h6>
+    </div>
+    <br>
+    <div class="card-body" style="color: #222222">
+        <div style="font-size: 20px;">You will currently receive: {{totalTokens}} Tokens up on minting.
+        </div>
+        <hr>
+        <div *ngIf="transacitons.length>0">
+            <div *ngFor="let trans of transacitons">
+                <app-transaction [data]="trans">
+                </app-transaction>
+            </div>
+        </div>
+        <div *ngIf="transacitons.length==0">
+            <div class="text-danger" style="font-size: 14px;">You have not yet invested. Or your transaction is still pending</div>
+        </div>
+    </div>
+</div>

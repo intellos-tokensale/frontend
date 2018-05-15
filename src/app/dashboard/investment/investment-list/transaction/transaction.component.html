@@ -1,0 +1,15 @@
+<div style="font-size: 10pt"> {{_data.blockchainTxId}}</div>
+<div class="row mb-3">
+    <div class="col-3">
+        date: {{_data?.time | date: 'dd.MM.yy hh:mm'}} <br>
+    </div>
+    <div class="col-4">
+        {{_data?.amount}} {{_data?.currency}} x {{_data?.dollarRate*_data?.dollarTokenRate}} ITL/{{_data?.currency}} {{_data?.amount*_data?.dollarRate*_data?.dollarTokenRate*(1+_data?.discount)}}
+    </div>
+    <div class="col-2">
+        x {{_data?.discount*100}} %
+    </div>
+    <div class="col-3">
+        = {{_data?.tokens}} ITL
+    </div>
+</div>

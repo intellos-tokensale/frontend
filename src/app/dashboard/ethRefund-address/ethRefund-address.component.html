@@ -1,0 +1,29 @@
+<div class="card mb-4 box-shadow">
+    <div class="card-header " style="background-color: #3f51b5;color: #eeeeee">
+        <h6 translate>Ethereum Refunding</h6>
+    </div>
+    <div class="card-body" style="color: #222222">
+        <div style="font-size: 14px;">ETH Refund-Address: {{ethRefundAddress}}
+            <span *ngIf="!ethRefundAddress" class="text-danger">
+              Address not set
+           </span>
+        </div>
+        <hr>
+        <button type="button" class="btn btn-primary" (click)="setShow('set')" [disabled]="false"><i class="fas fa-plus"></i> Edit</button>
+        <div *ngIf="show('set')">
+            <br>
+            <div class="form-group">
+                <input type="text" id="ethRefundAddressID" class="form-control" matInput [(ngModel)]="ethRefundAddress" app-erc20validator placeholder="ETH address" required #address="ngModel" [ngClass]="{ 'is-invalid': address.invalid && (address.dirty || address.touched), 'is-valid': address.valid && (address.dirty || address.touched)}">
+                <div class="form-control-feedback invalid-feedback" *ngIf="address.errors && (address.dirty || address.touched)">
+                    <p *ngIf="address.errors.required">ETH address is required</p>
+                    <p *ngIf="address.errors.erc20validator">Please provide a valid ETH address</p>
+                </div>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <br>
+                <button type="button" (click)="save()" [disabled]="address.invalid" class="btn btn-primary">save</button>
+            </div>
+        </div>
+    </div>
+</div>
