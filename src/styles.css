@@ -16,3 +16,66 @@
         font-size: 30px;
     }
 }
+
+.invalid-fb {
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 100%;
+    font-weight: bolder;
+    color: #ff0019;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+.rightfork {
+    background-color: #212124;
+    color: #fff;
+    text-align: center;
+}
+
+.toast-success {
+    text-align: center;
+    font-size: 120%;
+    vertical-align: middle;
+    color: #4F8A10;
+    background-color: #DFF2BF;
+}
+
+.toast-error {
+    text-align: center;
+    font-size: 120%;
+    vertical-align: middle;
+    color: #D8000C;
+    background-color: #FFD2D2;
+}
+
+.toast-info {
+    text-align: center;
+    font-size: 120%;
+    vertical-align: middle;
+    color: #00529B;
+    background-color: #BDE5F8;
+}
+
+.toast-warning {
+    text-align: center;
+    font-size: 120%;
+    vertical-align: middle;
+    color: #9F6000;
+    background-color: #FEEFB3;
+}
+
+.alertbox {
+    position: absolute;
+    z-index: 3000;
+    width: 100%
+}

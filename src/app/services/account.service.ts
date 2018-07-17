@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { SessionService } from './session.service';
+import { ConfigService } from './config.service';
 
 
 
@@ -13,43 +14,57 @@ export class AccountService {
   private obs: any;
   private httpOptions;
 
-  constructor(private http: HttpClient, private sessionService: SessionService) {
-    this.httpOptions = {
+  constructor(private http: HttpClient,
+    private configService: ConfigService,
+    private sessionService: SessionService) {
+  }
+
+  getAccount(): Observable<any>  {
+    return this.http.get(this.configService.getConfig('server') + '/api/accounts', this.getHeaders());
+  }
+
+  register( user: any): Observable<any> {
+    const httpOptions = {
       headers: new HttpHeaders({
-         'Content-Type': 'application/json',
-         'Authorization': 'Bearer ' + this.sessionService.get(),
+         'Content-Type': 'application/json'
       })
     };
-    this.fetch();
-  }
-
-  fetch() {
-    this.obs = this.http.get('http://localhost:3000/api/accounts', this.httpOptions);
-  }
-
-  refresh() {
-    this.fetch();
-  }
-
-  getAccount() {
-    return this.obs;
+    return this.http.post(this.configService.getConfig('server') + '/api/accounts/register',
+     user, httpOptions);
   }
 
   saveErc20( erc20: any): Observable<ArrayBuffer> {
-    return this.http.post('http://localhost:3000/api/accounts/erc20', {erc20Address: erc20}, this.httpOptions);
+    return this.http.post(this.configService.getConfig('server') + '/api/accounts/erc20',
+      {erc20Address: erc20}, this.getHeaders());
+  }
+
+  changePw( password: string): Observable<ArrayBuffer> {
+    return this.http.post(this.configService.getConfig('server') + '/api/accounts/changepw',
+      {password}, this.getHeaders());
   }
 
   saveETHRefundAddress( ethRefundAddress: any): Observable<ArrayBuffer> {
-    return this.http.post('http://localhost:3000/api/accounts/ethRefundAddress', {ethRefundAddress: ethRefundAddress}, this.httpOptions);
+    return this.http.post(this.configService.getConfig('server') + '/api/accounts/ethRefundAddress',
+      {ethRefundAddress: ethRefundAddress}, this.getHeaders());
   }
 
   saveBTCRefundAddress( btcRefundAddress: any): Observable<ArrayBuffer> {
-    return this.http.post('http://localhost:3000/api/accounts/btcRefundAddress', {btcRefundAddress: btcRefundAddress}, this.httpOptions);
+    return this.http.post(this.configService.getConfig('server') + '/api/accounts/btcRefundAddress',
+      {btcRefundAddress: btcRefundAddress}, this.getHeaders());
   }
 
   extractData(res: Response) {
     const body = res.json();
     return body || {};
+  }
+
+  private getHeaders(): any {
+    return {
+      headers: new HttpHeaders({
+         'Content-Type': 'application/json',
+         'Authorization': 'Bearer ' + this.sessionService.get(),
+      })
+    };
   }
 
 }

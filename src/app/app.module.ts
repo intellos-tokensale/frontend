@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { APP_INITIALIZER } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -30,6 +31,18 @@ import { CountdownComponent } from './dashboard/investment/countdown/countdown.c
 import { ClipboardModule } from 'ngx-clipboard';
 import { GeneralInfoService } from './services/generalInfo.service';
 import { GeneralInfoComponent } from './dashboard/general-info/general-info.component';
+import { LoginComponent } from './user/login/login.component';
+import { RegisterComponent } from './user/register/register.component';
+import { AuthenticationService } from './services/authentication.service';
+import { AuthGuard } from './guards/auth.guard';
+import { ConfigService } from './services/config.service';
+import { AlertService } from './services/alert.service';
+import { WhitelistpageComponent } from './whitelistpage/whitelistpage.component';
+import { ReferalLinkComponent } from './whitelistpage/referalLink/referalLink.component';
+import { LoginForkComponent } from './user/loginfork/loginfork.component';
+import { ResetPwComponent } from './user/resetPw/resetpw.component';
+import { ChangePwComponent } from './user/changePw/changepw.component';
+import { AlertComponent } from './alert/alert.component';
 
 
 // AoT requires an exported function for factories
@@ -40,6 +53,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
+    AlertComponent,
     DashboardComponent,
     BuyComponent,
     ConfirmComponent,
@@ -50,11 +64,18 @@ export function HttpLoaderFactory(http: HttpClient) {
     BTCValidator,
     WalletComponent,
     InvestmentListComponent,
+    BTCRefundAddressComponent,
+    WhitelistpageComponent,
+    ReferalLinkComponent,
     TransactionComponent,
+    LoginForkComponent,
     CountdownComponent,
+    LoginComponent,
+    RegisterComponent,
     GeneralInfoComponent,
     ETHRefundAddressComponent,
-    BTCRefundAddressComponent
+    ResetPwComponent,
+    ChangePwComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +84,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     CustomFormsModule,
     ClipboardModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -74,9 +96,14 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [
     SessionService,
     RateService,
+    { provide: APP_INITIALIZER, useFactory: (config: ConfigService) => () => config.load(), deps: [ConfigService], multi: true },
     GeneralInfoService,
     AccountService,
-    InvestmentService
+    ConfigService,
+    AlertService,
+    AuthenticationService,
+    InvestmentService,
+    AuthGuard,
   ],
   bootstrap: [AppComponent]
 })

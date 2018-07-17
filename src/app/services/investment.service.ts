@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { SessionService } from './session.service';
+import { ConfigService } from './config.service';
 
 
 
@@ -12,7 +13,9 @@ export class InvestmentService {
 
   private httpOptions;
 
-  constructor(private http: HttpClient, private sessionService: SessionService) {
+  constructor(private http: HttpClient,
+              private configService: ConfigService,
+              private sessionService: SessionService) {
     this.httpOptions = {
       headers: new HttpHeaders({
          'Content-Type': 'application/json',
@@ -22,11 +25,11 @@ export class InvestmentService {
   }
 
   getTransactions() {
-    return this.http.get('http://localhost:3000/api/accounts/transactions', this.httpOptions);
+    return this.http.get(this.configService.getConfig('server') + '/api/accounts/transactions', this.httpOptions);
   }
 
   getTotalTokens() {
-    return this.http.get('http://localhost:3000/api/accounts/tokenamount', this.httpOptions);
+    return this.http.get(this.configService.getConfig('server') + '/api/accounts/tokenamount', this.httpOptions);
   }
 
 

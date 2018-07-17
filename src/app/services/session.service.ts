@@ -7,19 +7,30 @@ import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class SessionService {
 
-  private sessionId: any;
   private language: any;
   constructor(private http: HttpClient) {}
 
-  set(sessionid: any) {
-    this.sessionId = sessionid;
-  }
 
   get() {
-    return this.sessionId;
+    return JSON.parse(localStorage.getItem('authToken'));
   }
 
-  setLanguage(language: any) {
+  getAuthHeaders(): HttpHeaders {
+    return  new HttpHeaders({
+         'Content-Type': 'application/json',
+         'Authorization': 'Bearer ' + this.get(),
+      });
+  }
+
+  getUser(): any {
+    return JSON.parse(localStorage.getItem('currentUser'));
+  }
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('authToken');
+  }
+
+  setLanguage(language: string) {
     this.language = language;
   }
 

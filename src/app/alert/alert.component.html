@@ -1,0 +1,5 @@
+﻿<div class="alertbox">
+    <div *ngFor="let alert of alerts" class="animated fadeInDown">
+        <div class="{{ cssClass(alert) }}">{{alert.message}}</div>
+    </div>
+</div>

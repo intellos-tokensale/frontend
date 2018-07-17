@@ -1,0 +1,239 @@
+@font-face {
+	font-family:'ABCNormal';
+	src:url(../fonts/abc-normal/ABCNormal-Normal.eot);
+	src:url(../fonts/abc-normal/ABCNormal-Normal.eot?) format("embedded-opentype"),url(../fonts/abc-normal/ABCNormal-Normal.woff2) format("woff2"),url(../fonts/abc-normal/ABCNormal-Normal.woff) format("woff"),url(../fonts/abc-normal/ABCNormal-Normal.ttf) format("truetype");
+	font-weight:400;
+	font-style:normal;
+}
+
+@font-face {
+	font-family:'ABCNormalBold';
+	src:url(../fonts/abc-normal/ABCNormal-Heavy.eot);
+	src:url(../fonts/abc-normal/ABCNormal-Heavy.eot?) format("embedded-opentype"),url(../fonts/abc-normal/ABCNormal-Heavy.woff2) format("woff2"),url(../fonts/abc-normal/ABCNormal-Heavy.woff) format("woff"),url(../fonts/abc-normal/ABCNormal-Heavy.ttf) format("truetype");
+	font-weight:500;
+	font-style:normal;
+}
+
+@font-face {
+	font-family:'PxGrotesk';
+	src:url(../fonts/px-grotesk/PxGroteskRegular.eot);
+	src:url(../fonts/px-grotesk/PxGroteskRegular.eot?) format("embedded-opentype"),url(../fonts/px-grotesk/PxGroteskRegular.woff2) format("woff2"),url(../fonts/px-grotesk/PxGroteskRegular.woff) format("woff"),url(../fonts/px-grotesk/PxGroteskRegular.ttf) format("truetype"),url(../fonts/px-grotesk/PxGroteskRegular.svg) format("svg");
+	font-weight:400;
+	font-style:normal;
+}
+
+@font-face {
+	font-family:'PxGroteskBold';
+	src:url(../fonts/px-grotesk/PxGrotesk-Bold.eot);
+	src:url(../fonts/px-grotesk/PxGrotesk-Bold.eot?) format("embedded-opentype"),url(../fonts/px-grotesk/PxGrotesk-Bold.woff2) format("woff2"),url(../fonts/px-grotesk/PxGrotesk-Bold.woff) format("woff"),url(../fonts/px-grotesk/PxGrotesk-Bold.ttf) format("truetype"),url(../fonts/px-grotesk/PxGrotesk-Bold.svg) format("svg");
+	font-weight:700;
+	font-style:normal;
+}
+
+html,body {
+	height:100%;
+	background-color:#212124;
+}
+
+.page {
+	height:100%;
+}
+
+.left {
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	height:100%;
+	color:#FFF;
+	background:url('../images/intellos-pattern.png');
+	background-size:60%;
+}
+
+.right {
+	display:flex;
+	background-color:#212124;
+	height:100%;
+	color:#fff;
+}
+
+.logo {
+	width:200px;
+}
+
+.h1 {
+	font-size:15px;
+	font-family:'PxGroteskBold';
+	color:#4e5053;
+}
+
+.h2 {
+	font-size:30px;
+	font-family:'PxGroteskBold';
+	color:#fff;
+}
+
+/*
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 812px)
+and (-webkit-device-pixel-ratio : 3) {
+  .logo {
+    width: 250px;
+  }
+}*/
+.sign-up-container {
+	width:100%;
+	margin-left:40px;
+	margin-right:40px;
+	margin-top:50px;
+}
+
+.signup-input-container {
+	margin-bottom:14px;
+}
+
+.section-breaker {
+	display:block;
+	height:.1rem;
+	width:40%;
+	border:0;
+	border-top:.1rem solid #6daeff;
+	margin:1em 0;
+	margin-top:30px;
+	margin-bottom:30px;
+	padding:0;
+}
+
+.form_input {
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	appearance:none;
+	background-color:#3c3c3f;
+	border:2px solid #3c3c3f;
+/*Removes border*/
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px;
+	text-indent:.01px;
+/* Removes default arrow from firefox*/
+	text-overflow:;
+/*Removes default arrow from firefox*/
+/*My custom style for fonts*/
+	padding:10px;
+	font-family:'ABCNormal';
+	font-size:12px;
+	height: 37px;
+
+}
+
+.form_input_error {
+	box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 2px solid #d75252;
+}
+
+.form_select {
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	appearance:none;
+	background-color:#3c3c3f;
+	border:2px solid #3c3c3f;
+/*Removes border*/
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px;
+	text-indent:.01px;
+/* Removes default arrow from firefox*/
+	text-overflow:;
+/*Removes default arrow from firefox*/
+/*My custom style for fonts*/
+	padding:10px;
+	font-family:'ABCNormal';
+	font-size:12px;
+	background-image:url("data:image/svg+xml;utf8,<svg fill='#686868' height='25' viewBox='0 0 22 22' width='25' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+	background-repeat:no-repeat;
+	background-position-x:100%;
+	background-position-y:5px;
+	height: 37px;
+}
+
+textarea:focus,input:focus,select:focus {
+	outline:none;
+}
+
+.butn {
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 13px;
+  background: #353538;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.butn:hover {
+  background: #2e2e31;
+  text-decoration: none;
+}
+
+
+
+.add_space {
+	height:0;
+}
+
+@media (max-width: 1200px) {
+	.left {
+		height:15%;
+		background-size:30%;
+	}
+
+	.right {
+		height:80%;
+	}
+
+	.logo {
+		width:150px;
+	}
+
+	.sign-up-container {
+		width:60%;
+		margin-left:20%;
+		margin-right:40px;
+		margin-top:30px;
+	}
+
+	.add_space {
+		height:100px;
+	}
+}
+
+@media (max-width: 800px) {
+	.left {
+		height:15%;
+		background-size:30%;
+	}
+
+	.right {
+		height:80%;
+	}
+
+	.logo {
+		width:150px;
+	}
+
+	.sign-up-container {
+		width:100%;
+		margin-left:5px;
+		margin-right:5px;
+		margin-top:30px;
+	}
+
+	.add_space {
+		height:100px;
+	}
+}

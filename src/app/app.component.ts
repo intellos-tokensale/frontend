@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 import { SessionService } from './services/session.service';
+import { ConfigService } from './services/config.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,10 @@ import { SessionService } from './services/session.service';
 export class AppComponent implements OnInit {
   title = 'app';
 
-  constructor(public translate: TranslateService, private activatedRoute: ActivatedRoute, private sessionService: SessionService) {
+  constructor(public translate: TranslateService,
+              private activatedRoute: ActivatedRoute,
+              private configService: ConfigService,
+              private sessionService: SessionService) {
     translate.addLangs(['en', 'fr']);
     translate.setDefaultLang('en');
   }
@@ -26,8 +30,6 @@ export class AppComponent implements OnInit {
         this.translate.use(defLang);
         this.sessionService.setLanguage(defLang);
 
-        const sessionID = params['sessionid'];
-        this.sessionService.set(sessionID);
       });
   }
 
